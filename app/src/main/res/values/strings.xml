@@ -17,6 +17,12 @@
     <string name="req">cancel Request</string>
     <string name="list">list</string>
     <string name="signup">signup</string>
+    <string name="date">date</string>
+    <string name="time">time</string>
+    <string name="cost">cost</string>
+    <string name="request">request</string>
+    <string name="discrebtion">discrebtion</string>
+    <string name="direction">direction</string>
     <string name="signin">SIGN IN</string>
 
     <string name="or">  _____________or_____________

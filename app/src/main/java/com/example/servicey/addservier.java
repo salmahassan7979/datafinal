@@ -31,15 +31,25 @@ import java.util.ArrayList;
 
 
 
-public abstract class addservier extends AppCompatActivity implements feedadapter.OnItemClickListener {
+public class addservier extends AppCompatActivity implements feedadapter.OnItemClickListener {
+    public static final String EXTRA_URL = "imageUrl";
+    public static final String EXTRA_CREATOR = "service";
+    public static final String EXTRA_server = "servier";
+    public static final String EXTRA_LIKES = "rate";
+    public static final String EXTRA_time = "time";
+    public static final String EXTRA_date = "date";
+    public static final String EXTRA_cost = "cost";
+    public static final String EXTRA_discrebtion= "discrebtion";
+    public static final String EXTRA_direction= "direction";
     database db =new database(this);
-    private String mImageUrl;
-    private String mservice;
+  //  private String mImageUrl;
+    //private String mservice;
     private String mspname;
-    private int mrate;
+    //private int mrate;
     private RecyclerView mRecyclerView;
     private feedadapter mfeedAdapter;
     private ArrayList<recycleviewfeed> recycleview;
+    private ArrayList<getdetails> view;
     private RequestQueue mRequestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +61,7 @@ public abstract class addservier extends AppCompatActivity implements feedadapte
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         recycleview = new ArrayList<>();
-
+        view = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(this);
         parseJSON();
     }
@@ -64,6 +74,7 @@ public abstract class addservier extends AppCompatActivity implements feedadapte
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+                            //esm el table
                             JSONArray jsonArray = response.getJSONArray("hits");
 
                             for (int i = 0; i < jsonArray.length(); i++) {
@@ -72,13 +83,13 @@ public abstract class addservier extends AppCompatActivity implements feedadapte
                                 String creatorName = hit.getString("user");
                                 String imageUrl = hit.getString("webformatURL");
                                 int likeCount = hit.getInt("likes");
-
-                                recycleview.add(new recycleviewfeed(mImageUrl, mservice,  mrate,mspname));
+//t3'eer 3la 7asb eldata bta3ty
+                                recycleview.add(new recycleviewfeed(imageUrl, creatorName, likeCount,mspname));
                             }
-
-                            mfeedAdapter = new feedadapter(addservier.this, recycleview);
+//zawedt 3la elfeedadapter array tany 3l4an yb2a feh el details
+                            mfeedAdapter = new feedadapter(addservier.this, recycleview,view);
                             mRecyclerView.setAdapter(mfeedAdapter);
-
+                            mfeedAdapter.setOnItemClickListener(addservier.this);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -97,5 +108,25 @@ public abstract class addservier extends AppCompatActivity implements feedadapte
         ArrayList<String> listData= db.getAllrecord();
         ArrayAdapter arrayAdapter=new ArrayAdapter(this, android.R.layout.simple_list_item_1,listData);
         //lst.setAdapter(arrayAdapter);
+    }
+//hena bytal3ly el7gat ely 5azntha fe el array bta3et el feed lakn ana 3awza kyam zyada(time,date..)
+    @Override
+    public void onItemClick(int position) {
+        Intent detailIntent = new Intent(this, DetailActivity.class);
+        getdetails clickedItem = view.get(position);
+recycleviewfeed click = recycleview.get(position);
+
+        detailIntent.putExtra(EXTRA_URL, clickedItem.getImageUrl());
+        detailIntent.putExtra(EXTRA_CREATOR, clickedItem.getservice());
+        detailIntent.putExtra(EXTRA_LIKES, clickedItem.getrateCount());
+        detailIntent.putExtra(EXTRA_date, clickedItem.getdate());
+        detailIntent.putExtra(EXTRA_discrebtion, clickedItem.getdiscrebtion());
+        detailIntent.putExtra(EXTRA_time, clickedItem.gettime());
+        detailIntent.putExtra(EXTRA_cost, clickedItem.getcost());
+        detailIntent.putExtra(EXTRA_direction, clickedItem.getdirection());
+        detailIntent.putExtra(EXTRA_server, clickedItem.getspname());
+
+
+        startActivity(detailIntent);
     }
 }

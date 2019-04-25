@@ -1,8 +1,6 @@
 package com.example.servicey;
 
 import android.content.Context;
-import android.provider.Telephony;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,13 +10,13 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import java.lang.reflect.Array;
-import java.time.Instant;
+
 import java.util.ArrayList;
 
 public  class feedadapter extends RecyclerView.Adapter<feedadapter.feedViewHolder> {
     private Context mcontext;
     private ArrayList<recycleviewfeed> mrecycle;
+    private ArrayList<getdetails> mview;
     private OnItemClickListener mListener;
 
     public interface OnItemClickListener {
@@ -28,9 +26,10 @@ public  class feedadapter extends RecyclerView.Adapter<feedadapter.feedViewHolde
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
     }
-    public feedadapter(Context context, ArrayList<recycleviewfeed> recycle){
+    public feedadapter(Context context, ArrayList<recycleviewfeed> recycle,ArrayList<getdetails> view){
         mcontext =context;
         mrecycle=recycle;
+        mview=view;
     }
 
 
