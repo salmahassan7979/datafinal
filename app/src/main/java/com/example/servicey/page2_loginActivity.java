@@ -26,7 +26,7 @@ public class page2_loginActivity extends AppCompatActivity {
        login_id = findViewById(R.id.pswrdd);
         button = findViewById(R.id.signin);
         signup=findViewById(R.id.signup);
-        lst=(ListView)findViewById(R.id.list);
+      //  lst=(ListView)findViewById(R.id.list);
         signup.setOnClickListener(new View.OnClickListener() {
 
                                       @Override
