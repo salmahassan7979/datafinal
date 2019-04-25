@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">servicey</string>
+    <string name="name">Name</string>
+    <string name="pass">Password</string>
+    <string name="email">Email</string>
+    <string name="signin">SIGN IN</string>
+    <string name="newacc">Create New Account</string>
+    <string name="or">  _____________or_____________
+    </string>
+</resources>

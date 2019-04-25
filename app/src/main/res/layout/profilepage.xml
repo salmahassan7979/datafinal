@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="211dp"
+            android:background="#FF6666"
+            android:contentDescription="@string/app_name"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="#FF6666">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
+        </FrameLayout>
+
+        <RatingBar
+            android:id="@+id/ratingBar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-60dp"
+            android:background="#FF6666"
+            android:stepSize="@android:dimen/app_icon_size"
+            android:layout_marginLeft="80dp"
+            android:layout_marginStart="80dp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#FFFFFF"
+            android:drawablePadding="@android:dimen/dialog_min_width_major"
+            android:gravity="start"
+            android:padding="?attr/dialogPreferredPadding"
+            android:text="@string/Feed"
+            android:textColor="#545457"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:background="#FFFFFF"
+            android:gravity="start"
+            android:padding="?attr/dialogPreferredPadding"
+            android:text="@string/History"
+            android:textColor="#545457"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:background="#FFFFFF"
+            android:gravity="start"
+            android:padding="?attr/dialogPreferredPadding"
+            android:text="@string/My_Services"
+            android:textColor="#545457"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:background="#FFFFFF"
+            android:gravity="start"
+            android:padding="?attr/dialogPreferredPadding"
+            android:text="@string/Notifications"
+            android:textColor="#545457"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#FFFFFF"
+            android:gravity="start"
+            android:padding="?attr/dialogPreferredPadding"
+            android:text="@string/Account"
+            android:textColor="#545457"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:background="#FFFFFF"
+            android:gravity="start"
+            android:padding="?attr/dialogPreferredPadding"
+            android:text="@string/Logout" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

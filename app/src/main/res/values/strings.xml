@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">servicey</string>
+    <string name="name">Name</string>
+    <string name="pass">Password</string>
+    <string name="email">Email</string>
+    <string name="recycle">recycle</string>
+    <string name="service_name">service_name</string>
+    <string name="Feed">Feed</string>
+    <string name="spname">spname</string>
+    <string name="History">History</string>
+    <string name="My_Services">My Services</string>
+    <string name="gmail">Sign in by Gmail</string>
+    <string name="Notifications">Notification</string>
+    <string name="Account">Account</string>
+    <string name="Logout">Logout</string>
+    <string name="Add_cart">add cart</string>
+    <string name="req">cancel Request</string>
+    <string name="list">list</string>
+    <string name="signup">signup</string>
+    <string name="signin">SIGN IN</string>
+
+    <string name="or">  _____________or_____________
+    </string>
+    <color name="pink">#FFB6C1</color>
+</resources>
