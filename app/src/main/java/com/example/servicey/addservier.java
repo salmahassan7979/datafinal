@@ -84,10 +84,10 @@ public class addservier extends AppCompatActivity implements feedadapter.OnItemC
                                 String imageUrl = hit.getString("webformatURL");
                                 int likeCount = hit.getInt("likes");
 //t3'eer 3la 7asb eldata bta3ty
-                                recycleview.add(new recycleviewfeed(imageUrl, creatorName, likeCount,mspname));
+                                recycleview.add(new recycleviewfeed(imageUrl, creatorName, likeCount));
                             }
 //zawedt 3la elfeedadapter array tany 3l4an yb2a feh el details
-                            mfeedAdapter = new feedadapter(addservier.this, recycleview,view);
+                            mfeedAdapter = new feedadapter(addservier.this, recycleview);
                             mRecyclerView.setAdapter(mfeedAdapter);
                             mfeedAdapter.setOnItemClickListener(addservier.this);
                         } catch (JSONException e) {
@@ -113,8 +113,8 @@ public class addservier extends AppCompatActivity implements feedadapter.OnItemC
     @Override
     public void onItemClick(int position) {
         Intent detailIntent = new Intent(this, DetailActivity.class);
-        getdetails clickedItem = view.get(position);
-recycleviewfeed click = recycleview.get(position);
+       // getdetails clickedItem = view.get(position);
+recycleviewfeed clickedItem = recycleview.get(position);
 
         detailIntent.putExtra(EXTRA_URL, clickedItem.getImageUrl());
         detailIntent.putExtra(EXTRA_CREATOR, clickedItem.getservice());

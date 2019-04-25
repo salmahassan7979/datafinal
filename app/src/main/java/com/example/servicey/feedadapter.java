@@ -31,6 +31,11 @@ public  class feedadapter extends RecyclerView.Adapter<feedadapter.feedViewHolde
         mrecycle=recycle;
         mview=view;
     }
+    public feedadapter(Context context, ArrayList<recycleviewfeed> recycle){
+        mcontext =context;
+        mrecycle=recycle;
+
+    }
 
 
     @Override
