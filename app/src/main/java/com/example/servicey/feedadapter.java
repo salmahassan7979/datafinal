@@ -60,7 +60,8 @@ public  class feedadapter extends RecyclerView.Adapter<feedadapter.feedViewHolde
         feedViewHolder.spname.setText(name);
         feedViewHolder.ratem.setRating(likeCount);
        // Picasso.get().load(imageUrl).placeholder(R.drawable.default_pic).into(imageView);mcontext
-        Picasso.get().load(imageUrl).fit().centerInside().into(feedViewHolder.image);
+        Picasso.with(mcontext).load(imageUrl).into(feedViewHolder.image);
+        Picasso.with(mcontext).load(imageUrl).fit().centerInside().into(feedViewHolder.image);
         }
 
     @Override

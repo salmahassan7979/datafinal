@@ -50,7 +50,7 @@ public class DetailActivity extends AppCompatActivity {
         TextView textViewcost = findViewById(R.id.cost);
         TextView textViewdirection = findViewById(R.id.direction);
         TextView textViewdiscrebtion = findViewById(R.id.discrebtion);
-        Picasso.get().load(imageUrl).fit().centerInside().into(imageView);
+        Picasso.with(this).load(imageUrl).into(imageView);
         textViewCreator.setText(creatorName);
         textViewLikes.setRating(likeCount);
         textViewserver.setText(servier);
