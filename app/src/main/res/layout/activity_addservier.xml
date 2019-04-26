@@ -22,13 +22,21 @@
         android:orientation="vertical">
 
 
-        <ImageButton
-            android:id="@+id/addserver"
-            android:layout_width="88dp"
-            android:layout_height="83dp"
-            android:background="@drawable/ic_launcher_foreground"
-            android:scaleType="fitEnd"
-            android:src="@drawable/employee" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <ImageButton
+                android:id="@+id/addserver"
+                android:layout_width="88dp"
+                android:layout_height="83dp"
+
+                android:background="@drawable/ic_launcher_foreground"
+                android:scaleType="fitEnd"
+                android:src="@drawable/employee" />
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -45,21 +53,14 @@
 
                 <Spinner
                     android:id="@+id/spinner"
-                    android:layout_width="642dp"
+                    android:layout_width="309dp"
                     android:layout_height="match_parent"
-
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginRight="100dp"
                     android:layout_weight="1"
                     android:prompt="@string/selectcategory"
                     android:spinnerMode="dropdown" />
 
-                <ImageButton
-                    android:id="@+id/selectcategory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/background"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/tap" />
             </LinearLayout>
 
         </RelativeLayout>

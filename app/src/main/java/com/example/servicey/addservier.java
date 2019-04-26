@@ -65,7 +65,7 @@ public class addservier extends AppCompatActivity implements feedadapter.OnItemC
         mRequestQueue = Volley.newRequestQueue(this);
         parseJSON();
         spinner = findViewById(R.id.spinner);
-        button = findViewById(R.id.selectcategory);
+       // button = findViewById(R.id.selectcategory);
         List<String> categories = new ArrayList<>();
         categories.add(0, "Choose Category");
         categories.add("Real Estate");
