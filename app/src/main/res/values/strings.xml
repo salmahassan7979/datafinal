@@ -20,12 +20,15 @@
     <string name="date">date</string>
     <string name="time">time</string>
     <string name="cost">cost</string>
+    <string name="selectcategory">Select Category -> </string>
     <string name="request">request</string>
     <string name="discrebtion">discrebtion</string>
     <string name="direction">direction</string>
     <string name="signin">SIGN IN</string>
-
+    <string name="addserver">ADD Services -> </string>
+    <string name="sort">Sort By Rating -> </string>
     <string name="or">  _____________or_____________
+
     </string>
     <color name="pink">#FFB6C1</color>
 </resources>

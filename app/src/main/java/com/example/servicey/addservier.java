@@ -1,18 +1,11 @@
 package com.example.servicey;
 
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.app.Activity;
-import android.os.Bundle;
 import android.content.Intent;
-import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -27,11 +20,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class addservier extends AppCompatActivity implements feedadapter.OnItemClickListener {
+    private Spinner spinner;
+    private ImageButton button;
     public static final String EXTRA_URL = "imageUrl";
     public static final String EXTRA_CREATOR = "service";
     public static final String EXTRA_server = "servier";
@@ -56,7 +56,7 @@ public class addservier extends AppCompatActivity implements feedadapter.OnItemC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addservier);
 
-        mRecyclerView = findViewById(R.id.recycle);
+        mRecyclerView = findViewById(R.id.recycleart);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -64,7 +64,60 @@ public class addservier extends AppCompatActivity implements feedadapter.OnItemC
         view = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(this);
         parseJSON();
+        spinner = findViewById(R.id.spinner);
+        button = findViewById(R.id.selectcategory);
+        List<String> categories = new ArrayList<>();
+        categories.add(0, "Choose Category");
+        categories.add("Real Estate");
+        categories.add("Arts");
+        categories.add("Carpenter");
+        categories.add("Plumbing");
+        categories.add("Electricity");
+        categories.add("Mechanics");
+        categories.add("Other");
+
+
+        //Style and populate the spinner
+        ArrayAdapter<String> dataAdapter;
+        dataAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, categories);
+        //Dropdown layout style
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        //attaching data adapter to spinner
+        spinner.setAdapter(dataAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if (parent.getItemAtPosition(position).equals("Choose Category"))
+                {
+                    //do nothing
+                }
+                //tetkarr lkol category
+                else if(parent.getItemAtPosition(position).equals("Arts"))
+                {
+                    //on selecting a spinner item
+                    String item = parent.getItemAtPosition(position).toString();
+                    OpenActivity_arts();
+                    //show selected spinner item
+                    Toast.makeText(parent.getContext(), "Selected: " +item, Toast.LENGTH_SHORT).show();
+
+                    //anything else you want to do on item selection do here
+                }
+                else{
+                    String item = parent.getItemAtPosition(position).toString();
+                    Toast.makeText(parent.getContext(), "Selected: " +item, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+                // TODO Auto-generated method stub
+            }
+        });
     }
+
 
     private void parseJSON() {
         String url = "https://pixabay.com/api/?key=5303976-fd6581ad4ac165d1b75cc15b3&q=kitten&image_type=photo&pretty=true";
@@ -128,5 +181,11 @@ recycleviewfeed clickedItem = recycleview.get(position);
 
 
         startActivity(detailIntent);
+    }
+    public void OpenActivity_arts(){
+        //// Intent intent= new Intent(this,activity_.class);
+        Intent intent= new Intent (this,Arts.class);
+        startActivity( intent);
+
     }
 }
