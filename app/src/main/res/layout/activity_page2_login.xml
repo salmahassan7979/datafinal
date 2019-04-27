@@ -36,7 +36,7 @@
                     android:layout_gravity="center"/>
                 //android:src="@drawable/usrusr"
                 <EditText
-                    android:id="@+id/usrusr"
+                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Username"
@@ -65,7 +65,7 @@
                     android:layout_gravity="center"/>
                 //android:src="@drawable/pswd"
                 <EditText
-                    android:id="@+id/pswrdd"
+                    android:id="@+id/psw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"

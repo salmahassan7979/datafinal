@@ -25,7 +25,9 @@
     <string name="discrebtion">discrebtion</string>
     <string name="direction">direction</string>
     <string name="signin">SIGN IN</string>
-    <string name="addserver">ADD Services -> </string>
+    <string name="addimage">Add Image Services </string>
+    <string name="addID">Add ID </string>
+    <string name="mobile">Mobile Number </string>
     <string name="sort">Sort By Rating -> </string>
     <string name="or">  _____________or_____________
 

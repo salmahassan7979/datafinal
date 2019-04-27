@@ -10,7 +10,21 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class page2_loginActivity extends AppCompatActivity {
     database db =new database(this);
@@ -18,12 +32,15 @@ public class page2_loginActivity extends AppCompatActivity {
     private Button button;
   Button  signup;
     ListView lst;
+    private RequestQueue mRequestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page2_login);
-        email = findViewById(R.id.mail);
-       login_id = findViewById(R.id.pswrdd);
+        email = findViewById(R.id.emaill);
+       login_id = findViewById(R.id.psw);
+        mRequestQueue = Volley.newRequestQueue(this);
+       // parseJSON();
         button = findViewById(R.id.signin);
         signup=findViewById(R.id.signup);
       //  lst=(ListView)findViewById(R.id.list);
@@ -46,39 +63,41 @@ public class page2_loginActivity extends AppCompatActivity {
 
         });
     }
-    public void OpenActivity_added(){
-        //// Intent intent= new Intent(this,activity_.class);
-        Intent intent= new Intent (this,addservier.class);
-        startActivity( intent);
+    public void OpenActivity_added() {
+        String url = "https://pixabay.com/api/?key=5303976-fd6581ad4ac165d1b75cc15b3&q=kitten&image_type=photo&pretty=true";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(page2_loginActivity.this, "OK,Account created", Toast.LENGTH_SHORT).show();
+                       act();
+                    }
+
+
+                }, new ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            protected Map<String,String>getparams() throws AuthFailureError{
+                Map<String,String> params=new HashMap<>();
+                params.put("username","xxx");
+                params.put("password","yyy");
+                return params;
+            }
+        };
+    }
+    public void OpenActivity_signup() {
+            //// Intent intent= new Intent(this,activity_.class);
+            Intent intent = new Intent(this, signup.class);
+            startActivity(intent);
 
     }
-     public void add(View view) {
-         String pass = login_id.getText().toString();
 
-         String EMAIL = email.getText().toString();
-
-         Boolean result = db.insertdatalogin(pass, EMAIL);
-
-         //OpenActivity_added();
-         if (result == true) {
-             Toast.makeText(page2_loginActivity.this, "login is successfully", Toast.LENGTH_SHORT).show();
-             //  name.setText("");
-             //  email.setText("");
-             OpenActivity_added();
-         } else {
-             OpenActivity_signup();
-             Toast.makeText(page2_loginActivity.this, "please enter again", Toast.LENGTH_SHORT).show();
-         } OpenActivity_added();
-         }
-    public void OpenActivity_signup(){
-        //// Intent intent= new Intent(this,activity_.class);
-        Intent intent= new Intent (this,signup.class);
-        startActivity( intent);
-
-    }
-    public void showData(){
-        ArrayList<String> listData= db.getAllrecord();
-        ArrayAdapter arrayAdapter=new ArrayAdapter(this, android.R.layout.simple_list_item_1,listData);
-        lst.setAdapter(arrayAdapter);
-    }
+public void act(){
+    Intent intent= new Intent(this,addservier.class);
+     startActivity( intent);
+}
     }

@@ -58,7 +58,7 @@ public class Arts extends AppCompatActivity implements feedadapter.OnItemClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addservier);
+        setContentView(R.layout.activity_arts);
 
         mRecyclerView = findViewById(R.id.recycleart);
         mRecyclerView.setHasFixedSize(true);
@@ -96,6 +96,7 @@ public class Arts extends AppCompatActivity implements feedadapter.OnItemClickLi
                             mfeedAdapter = new feedadapter(Arts.this, recycleview);
                             mRecyclerView.setAdapter(mfeedAdapter);
                             mfeedAdapter.setOnItemClickListener(Arts.this);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

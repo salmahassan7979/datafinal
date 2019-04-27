@@ -16,10 +16,10 @@ public class signup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        name = findViewById(R.id.usrusr);
-        email = findViewById(R.id.mail);
-        id = findViewById(R.id.pswrdd);
-        mobilenumber = findViewById(R.id.mobphone);
+        name = findViewById(R.id.username);
+        email = findViewById(R.id.emaill);
+        id = findViewById(R.id.psw);
+        mobilenumber = findViewById(R.id.mobilee);
         button = findViewById(R.id.sup);
         button.setOnClickListener(new View.OnClickListener() {
 
