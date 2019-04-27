@@ -55,7 +55,7 @@ public class page2_loginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
+              //  act();
     OpenActivity_added();
 
 
@@ -64,7 +64,7 @@ public class page2_loginActivity extends AppCompatActivity {
         });
     }
     public void OpenActivity_added() {
-        String url = "https://pixabay.com/api/?key=5303976-fd6581ad4ac165d1b75cc15b3&q=kitten&image_type=photo&pretty=true";
+        String url = "192.168.1.145/android_register_login/login.php";
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -78,13 +78,13 @@ public class page2_loginActivity extends AppCompatActivity {
                 }, new ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(page2_loginActivity.this, "notresponce", Toast.LENGTH_SHORT).show();
             }
         }){
             protected Map<String,String>getparams() throws AuthFailureError{
                 Map<String,String> params=new HashMap<>();
-                params.put("username","xxx");
-                params.put("password","yyy");
+                params.put("username",email.getText().toString());
+                params.put("password",login_id.getText().toString());
                 return params;
             }
         };
