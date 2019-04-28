@@ -1,12 +1,9 @@
 package com.example.servicey;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -24,20 +21,13 @@ import static com.example.servicey.addservier.EXTRA_discrebtion;
 import static com.example.servicey.addservier.EXTRA_server;
 import static com.example.servicey.addservier.EXTRA_time;
 
-public class detailarts extends AppCompatActivity {
+public class detailcarpenter extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailarts);
-        Button button  = findViewById(R.id.request);
-        button.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View m) {
-                req();
-            }
-        });
         Intent intent = getIntent();
         String imageUrl = intent.getStringExtra(EXTRA_URL);
         String creatorName = intent.getStringExtra(EXTRA_CREATOR);
@@ -57,10 +47,8 @@ public class detailarts extends AppCompatActivity {
         TextView textViewtime = findViewById(R.id.time);
         TextView textViewdate = findViewById(R.id.date);
         TextView textViewcost = findViewById(R.id.cost);
-
         TextView textViewdirection = findViewById(R.id.direction);
         TextView textViewdiscrebtion = findViewById(R.id.discrebtion);
-
         Picasso.with(this).load(imageUrl).into(imageView);
         textViewCreator.setText(creatorName);
         textViewLikes.setRating(likeCount);
@@ -70,9 +58,5 @@ public class detailarts extends AppCompatActivity {
         textViewcost.setText(cost);
         textViewdirection.setText(direction);
         textViewdiscrebtion.setText(discrebtion);
-    }
-    public void req(){
-        Intent intent= new Intent(this,addservier.class);
-        startActivity( intent);
     }
 }

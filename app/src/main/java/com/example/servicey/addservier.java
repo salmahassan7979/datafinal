@@ -55,11 +55,21 @@ public class addservier extends AppCompatActivity implements feedadapter.OnItemC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addservier);
-
+        button = findViewById(R.id.addserver);
         mRecyclerView = findViewById(R.id.recycleart);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+button.setOnClickListener(new View.OnClickListener() {
 
+    @Override
+    public void onClick(View v) {
+        open_addd_services();
+
+
+
+    }
+
+});
         recycleview = new ArrayList<>();
         view = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(this);
@@ -98,12 +108,25 @@ public class addservier extends AppCompatActivity implements feedadapter.OnItemC
                 {
                     //on selecting a spinner item
                     String item = parent.getItemAtPosition(position).toString();
-                    OpenActivity_arts();
+
                     //show selected spinner item
                     Toast.makeText(parent.getContext(), "Selected: " +item, Toast.LENGTH_SHORT).show();
-
+                    OpenActivity_arts();
                     //anything else you want to do on item selection do here
                 }
+                else if(parent.getItemAtPosition(position).equals("Carpenter")){
+                    String item = parent.getItemAtPosition(position).toString();
+
+                    Toast.makeText(parent.getContext(), "Selected: " +item, Toast.LENGTH_SHORT).show();
+                    openActivity_carpenter();
+                }
+                else if (parent.getItemAtPosition(position).equals("Real Estate")){
+                    String item = parent.getItemAtPosition(position).toString();
+
+                    Toast.makeText(parent.getContext(), "Selected: " +item, Toast.LENGTH_SHORT).show();
+                    openActivity_real();
+                }
+
                 else{
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected: " +item, Toast.LENGTH_SHORT).show();
@@ -187,5 +210,21 @@ recycleviewfeed clickedItem = recycleview.get(position);
         Intent intent= new Intent (this,Arts.class);
         startActivity( intent);
 
+    }
+    public void openActivity_carpenter(){
+        //// Intent intent= new Intent(this,activity_.class);
+        Intent intent= new Intent (this,Carpenter.class);
+        startActivity( intent);
+
+    }
+    public void openActivity_real(){
+        //// Intent intent= new Intent(this,activity_.class);
+        Intent intent= new Intent (this,Real_Estate.class);
+        startActivity( intent);
+
+    }
+    public void open_addd_services(){
+        Intent intent= new Intent(this,service_add.class);
+        startActivity( intent);
     }
 }

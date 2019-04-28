@@ -55,7 +55,7 @@ public class page2_loginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-              //  act();
+                act();
     OpenActivity_added();
 
 

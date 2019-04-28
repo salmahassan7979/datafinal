@@ -3,6 +3,7 @@
     package="com.example.servicey">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Request"></activity>
+        <activity android:name=".detailreal" />
+        <activity android:name=".Real_Estate" />
+        <activity android:name=".detailcarpenter" />
+        <activity android:name=".Carpenter" />
+        <activity android:name=".service_add" />
         <activity android:name=".detailarts" />
         <activity android:name=".Arts" />
         <activity android:name=".DetailActivity" />

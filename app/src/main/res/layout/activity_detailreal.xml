@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
-
+    tools:context=".detailreal">
     <LinearLayout
         android:id="@+id/d"
         android:layout_width="match_parent"
@@ -39,7 +38,7 @@
                 android:id="@+id/addserver"
                 android:layout_width="55dp"
                 android:layout_height="53dp"
-android:layout_marginLeft="40dp"
+                android:layout_marginLeft="40dp"
                 android:background="@drawable/ic_launcher_foreground"
                 android:scaleType="centerCrop"
                 android:src="@drawable/contact" />

@@ -38,7 +38,7 @@ public class signup extends AppCompatActivity {
         mobilenumber = findViewById(R.id.mobilee);
         button = findViewById(R.id.sup);
         button.setOnClickListener(new View.OnClickListener() {
-
+          //  RequestQueue req = Volley.newRequestQueue(this);
             @Override
             public void onClick(View v) {
                 Reseg();
@@ -62,14 +62,15 @@ public class signup extends AppCompatActivity {
 
             }*/
                 // }
-            }  });
+            }});
     }
     private void Reseg(){
         button.setVisibility(View.GONE);
         final String pass = password.getText().toString().trim();
+
         final String NAME = name.getText().toString().trim();
         final String EMAIL = email.getText().toString().trim();
-        String mob = mobilenumber.getText().toString().trim();
+        final String birth = mobilenumber.getText().toString().trim();
 String url="192.168.1.145/android_register_login/register.php";
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -80,7 +81,7 @@ String url="192.168.1.145/android_register_login/register.php";
                             String success= jsonobject.getString("success");
                             if(success.equals("1")){
                                 Toast.makeText(signup.this, "register success !", Toast.LENGTH_SHORT).show();
-
+                                OpenActivity_added();
                             }
                         }catch (JSONException e){
                             e.printStackTrace();
@@ -93,22 +94,26 @@ String url="192.168.1.145/android_register_login/register.php";
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(signup.this, "register Error"+error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(signup.this, " error register "+error.toString(), Toast.LENGTH_SHORT).show();
 
                 button.setVisibility(View.VISIBLE);
             }
         })
+
         {
+
             protected Map<String,String> getparams() throws AuthFailureError {
                 Map<String,String> params=new HashMap<>();
                 params.put("name",NAME);
                 params.put("password",pass);
                 params.put("email",EMAIL);
+                params.put("birthdate",birth);
                 return params;
             }
+
         };
-        RequestQueue mRequestQueue = Volley.newRequestQueue(this);
-        mRequestQueue.add(request);
+        RequestQueue req = Volley.newRequestQueue(this);
+        req.add(request);
     }
 
 
@@ -117,5 +122,4 @@ String url="192.168.1.145/android_register_login/register.php";
         Intent intent= new Intent (this,addservier.class);
         startActivity( intent);
 
-    }
-}
+    }}
