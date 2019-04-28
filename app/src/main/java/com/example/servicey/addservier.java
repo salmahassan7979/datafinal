@@ -31,7 +31,7 @@ import java.util.List;
 
 public class addservier extends AppCompatActivity implements feedadapter.OnItemClickListener {
     private Spinner spinner;
-    private ImageButton button;
+    private ImageButton button,bit;
     public static final String EXTRA_URL = "imageUrl";
     public static final String EXTRA_CREATOR = "service";
     public static final String EXTRA_server = "servier";
@@ -57,6 +57,7 @@ public class addservier extends AppCompatActivity implements feedadapter.OnItemC
         setContentView(R.layout.activity_addservier);
         button = findViewById(R.id.addserver);
         mRecyclerView = findViewById(R.id.recycleart);
+      bit= findViewById(R.id.menue);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 button.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +71,14 @@ button.setOnClickListener(new View.OnClickListener() {
     }
 
 });
+
+        bit.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View m) {
+                req();
+            }
+        });
         recycleview = new ArrayList<>();
         view = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(this);
@@ -225,6 +234,10 @@ recycleviewfeed clickedItem = recycleview.get(position);
     }
     public void open_addd_services(){
         Intent intent= new Intent(this,service_add.class);
+        startActivity( intent);
+    }
+    public void req(){
+        Intent intent= new Intent(this, profile.class);
         startActivity( intent);
     }
 }

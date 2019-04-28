@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Request"></activity>
+        <activity android:name=".profile"></activity>
+        <activity android:name=".Request" />
         <activity android:name=".detailreal" />
         <activity android:name=".Real_Estate" />
         <activity android:name=".detailcarpenter" />
